@@ -12,7 +12,7 @@ interface IProps {
   searchLabel: string;
   loading: boolean;
   error?: Error;
-  noOptionsText: string;
+  noOptionsText?: string;
   options: Option[];
   optionSelector: string;
   onInputChange?: (searchInput: string) => void;

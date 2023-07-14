@@ -12,7 +12,10 @@ interface IProps {
 
 const WeatherCard = ({ icon, temperature, condition, place, date }: IProps) => {
   return (
-    <div className="w-full bg-[#111] dark:bg-[#1a1a1a] p-8 rounded-lg h-full">
+    <div
+      className="w-full bg-[#111] dark:bg-[#1a1a1a] p-8 rounded-lg h-full"
+      data-testid="weather-card"
+    >
       <div>
         <img src={icon.url} alt={icon.alt}></img>
         <p className="text-4xl font-bold">{temperature}ºC</p>
