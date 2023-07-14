@@ -33,9 +33,7 @@ const MainWeather = () => {
 
   useEffect(() => {
     if (!dataWeather) return;
-    setWeatherHistory((prev: any) => {
-      return [dataWeather, ...prev];
-    });
+    setWeatherHistory((prev: any) => [dataWeather, ...prev]);
   }, [dataWeather, setWeatherHistory]);
 
   if (!dataWeather && loadingLocation && isLocationActive)

@@ -1,8 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import useApi from "./useApi";
+import { useGlobalContext } from "../context/global/global-context";
 
 const useWeather = () => {
   const { fetchApi, loading, data, error } = useApi();
+  const { setLoadingWeatherHistory } = useGlobalContext();
 
   const fetchWeather = useCallback(
     async (place: string) => {
@@ -12,6 +14,10 @@ const useWeather = () => {
     },
     [fetchApi]
   );
+
+  useEffect(() => {
+    setLoadingWeatherHistory(loading);
+  }, [loading, setLoadingWeatherHistory]);
 
   return {
     fetchWeather,

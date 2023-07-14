@@ -19,11 +19,11 @@ const WeatherCard = ({ icon, temperature, condition, place, date }: IProps) => {
         <p>{condition}</p>
         <Divider className="my-4" />
         <div className="flex flex-col ali">
-          <p>
+          <p className="flex items-center">
             <LocationOnIcon className="mr-1" />
             {place}
           </p>
-          <p>
+          <p className="flex items-center">
             <ScheduleIcon className="mr-1" />
             {date}
           </p>
