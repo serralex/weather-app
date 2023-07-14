@@ -3,7 +3,7 @@ import PrimaryWeatherCard from "../../components/WeatherCard/WeatherCard";
 import { useGlobalContext } from "../../context/global/global-context";
 import { IWeatherData } from "../../interfaces/weather";
 
-const RecentSearchedPlaces = () => {
+const RecentSearchedCities = () => {
   const { weatherHistory, loadingWeatherHistory } = useGlobalContext();
   const recentPlaces = weatherHistory.slice(1, 4);
 
@@ -42,4 +42,4 @@ const RecentSearchedPlaces = () => {
   );
 };
 
-export default RecentSearchedPlaces;
+export default RecentSearchedCities;

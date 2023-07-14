@@ -3,9 +3,9 @@ import Header from "../../components/ui/Header/Header";
 import SearchAutocomplete from "../../components/SearchAutocomplete/SearchAutocomplete";
 
 import { useGlobalContext } from "../../context/global/global-context";
-import RecentSearchedPlaces from "./RecentSearchedPlaces";
 import Layout from "../../components/ui/Layout/Layout";
 import MainWeather from "./MainWeather";
+import RecentSearchedCities from "./RecentSearchedCities";
 
 const Home = () => {
   const { setSelectedPlace } = useGlobalContext();
@@ -39,7 +39,7 @@ const Home = () => {
         <>
           <MainWeather />
           <div className="pt-8">
-            <RecentSearchedPlaces />
+            <RecentSearchedCities />
           </div>
         </>
       }

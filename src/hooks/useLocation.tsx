@@ -30,6 +30,7 @@ const useLocation = () => {
 
   useEffect(() => {
     if (!coords) return;
+
     setLoading(false);
     setLocation(coords.latitude + "," + coords.longitude);
     setCookie(
