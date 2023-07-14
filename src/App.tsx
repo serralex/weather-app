@@ -1,7 +1,25 @@
 import "./App.css";
+import { StyledEngineProvider } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import Home from "./features/Home/Home";
+import { GlobalContextProvider } from "./context/global/global-context";
 
-function App() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
-}
+const App = () => {
+  const darkTheme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+
+  return (
+    <StyledEngineProvider injectFirst>
+      <ThemeProvider theme={darkTheme}>
+        <GlobalContextProvider>
+          <Home />
+        </GlobalContextProvider>
+      </ThemeProvider>
+    </StyledEngineProvider>
+  );
+};
 
 export default App;
