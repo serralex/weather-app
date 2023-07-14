@@ -11,7 +11,7 @@ interface Option {
 interface IProps {
   searchLabel: string;
   loading: boolean;
-  error: Error | undefined;
+  error?: Error;
   noOptionsText: string;
   options: Option[];
   optionSelector: string;

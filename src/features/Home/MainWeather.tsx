@@ -13,12 +13,7 @@ const MainWeather = () => {
   } = useLocation();
   const { selectedPlace, setSelectedPlace, setWeatherHistory } =
     useGlobalContext();
-  const {
-    fetchWeather,
-    loading: loadingWeather,
-    data: dataWeather,
-    error: errorWeather,
-  } = useWeather();
+  const { fetchWeather, loading: loadingWeather, data, error } = useWeather();
 
   useEffect(() => {
     if (!location) return;
@@ -32,25 +27,24 @@ const MainWeather = () => {
   }, [selectedPlace, fetchWeather]);
 
   useEffect(() => {
-    if (!dataWeather) return;
-    setWeatherHistory((prev: any) => [dataWeather, ...prev]);
-  }, [dataWeather, setWeatherHistory]);
+    if (data) setWeatherHistory((prev: any) => [data, ...prev]);
+  }, [data, setWeatherHistory]);
 
-  const isLoading = !dataWeather && loadingLocation && isLocationActive;
-  const weatherCardProps = dataWeather && {
+  const isLoading = !data && loadingLocation && isLocationActive;
+  const weatherCardProps = data && {
     icon: {
-      url: dataWeather.current.condition.icon,
-      alt: dataWeather.current.condition.text,
+      url: data.current.condition.icon,
+      alt: data.current.condition.text,
     },
-    temperature: dataWeather.current.temp_c,
-    condition: dataWeather.current.condition.text,
-    place: `${dataWeather.location.name}, ${dataWeather.location.region}, ${dataWeather.location.country}`,
-    date: dataWeather.location.localtime,
+    temperature: data.current.temp_c,
+    condition: data.current.condition.text,
+    place: `${data.location.name}, ${data.location.region}, ${data.location.country}`,
+    date: data.location.localtime,
   };
 
-  if (errorWeather) return <div>Something went wrong</div>;
+  if (error) return <div>Something went wrong</div>;
   return (
-    <div className="w-full justify-center ">
+    <div className="w-full justify-center pb-8">
       {isLoading || loadingWeather ? (
         <Skeleton variant="rounded" width={"100%"} height={300} />
       ) : (

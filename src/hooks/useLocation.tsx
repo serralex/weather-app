@@ -18,9 +18,10 @@ const useLocation = () => {
     });
 
   useEffect(() => {
-    const isLocationOnCookies = getCookie(COOKIE_NAMES.userLocation);
+    const locationCookie = getCookie(COOKIE_NAMES.userLocation);
 
-    if (isLocationOnCookies) {
+    if (locationCookie) {
+      setLocation(locationCookie);
       setLoading(false);
       return;
     }
@@ -31,17 +32,18 @@ const useLocation = () => {
   useEffect(() => {
     if (!coords) return;
 
-    setLoading(false);
-    setLocation(coords.latitude + "," + coords.longitude);
+    const newLocation = `${coords.latitude},${coords.longitude}`;
+    setLocation(newLocation);
     setCookie(
       COOKIE_NAMES.userLocation,
-      coords.latitude + "," + coords.longitude,
+      newLocation,
       COOKIE_EXPIRES_IN.halfAnHour
     );
+    setLoading(false);
   }, [coords]);
 
   return {
-    location: getCookie(COOKIE_NAMES.userLocation) || location,
+    location: location,
     loading,
     isActive: isGeolocationAvailable,
     isGeolocationEnabled,

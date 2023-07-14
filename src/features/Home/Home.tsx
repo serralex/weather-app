@@ -6,9 +6,7 @@ const Home = () => {
   return (
     <Layout>
       <MainWeather />
-      <div className="pt-8">
-        <RecentSearchedCities />
-      </div>
+      <RecentSearchedCities />
     </Layout>
   );
 };
