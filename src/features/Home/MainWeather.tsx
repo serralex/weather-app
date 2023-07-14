@@ -4,7 +4,7 @@ import { Skeleton } from "@mui/material";
 import { useGlobalContext } from "../../context/global/global-context";
 import useWeather from "../../hooks/useWeather";
 import useLocation from "../../hooks/useLocation";
-import PrimaryWeatherCard from "../../components/WeatherCard/WeatherCard";
+import WeatherCard from "../../components/WeatherCard/WeatherCard";
 
 const MainWeather = () => {
   const {
@@ -12,12 +12,14 @@ const MainWeather = () => {
     loading: loadingLocation,
     isActive: isLocationActive,
   } = useLocation();
+
   const { selectedPlace, setSelectedPlace, setWeatherHistory } =
     useGlobalContext();
   const {
     fetchWeather,
     loading: loadingWeather,
     data: dataWeather,
+    error: errorWeather,
   } = useWeather();
 
   useEffect(() => {
@@ -36,6 +38,7 @@ const MainWeather = () => {
     setWeatherHistory((prev: any) => [dataWeather, ...prev]);
   }, [dataWeather, setWeatherHistory]);
 
+  if (errorWeather) return <div>Something went wrong</div>;
   if (!dataWeather && loadingLocation && isLocationActive)
     return <Skeleton variant="rounded" width={"100%"} height={300} />;
   return (
@@ -44,7 +47,7 @@ const MainWeather = () => {
         <Skeleton variant="rounded" width={"100%"} height={300} />
       ) : (
         dataWeather && (
-          <PrimaryWeatherCard
+          <WeatherCard
             icon={{
               url: dataWeather.current.condition.icon,
               alt: dataWeather.current.condition.text,
