@@ -12,7 +12,6 @@ const MainWeather = () => {
     loading: loadingLocation,
     isActive: isLocationActive,
   } = useLocation();
-
   const { selectedPlace, setSelectedPlace, setWeatherHistory } =
     useGlobalContext();
   const {

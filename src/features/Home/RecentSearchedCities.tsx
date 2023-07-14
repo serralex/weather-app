@@ -8,8 +8,7 @@ const RecentSearchedCities = () => {
   const recentPlaces = weatherHistory.slice(1, 4);
 
   if (recentPlaces?.length === 0) return null;
-  if (loadingWeatherHistory)
-    return <Skeleton variant="rounded" width={"100%"} height={300} />;
+
   return (
     <>
       <h2 className="pb-8">Recently searched cities</h2>
@@ -18,10 +17,13 @@ const RecentSearchedCities = () => {
         <Skeleton variant="rounded" width={"100%"} height={300} />
       ) : (
         <div className="grid md:grid-cols-3 gap-4 ">
-          {recentPlaces.map((data: IWeatherData, i: number) => {
+          {recentPlaces.map((data: IWeatherData) => {
             if (!data) return null;
             return (
-              <div className="flex-1" key={i}>
+              <div
+                className="flex-1"
+                key={data.location.name + data.location.localtime}
+              >
                 <PrimaryWeatherCard
                   key={data.location.name}
                   icon={{

@@ -8,3 +8,7 @@ export enum COOKIE_EXPIRES_IN {
   thirtyDays = 30 * 24 * 60 * 60,
   maxAge = 1000 * 60 * 60 * 24 * 14,
 }
+
+export const COOKIE_NAMES = {
+  userLocation: "userLocation",
+};

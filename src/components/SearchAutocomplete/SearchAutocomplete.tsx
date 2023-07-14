@@ -12,6 +12,7 @@ interface IProps {
   searchLabel: string;
   loading: boolean;
   error: Error | undefined;
+  noOptionsText: string;
   options: Option[];
   optionSelector: string;
   onInputChange?: (searchInput: string) => void;
@@ -24,6 +25,7 @@ const SearchAutocomplete = ({
   error,
   options = [],
   optionSelector,
+  noOptionsText,
   onInputChange,
   onChange,
 }: IProps) => {
@@ -35,6 +37,7 @@ const SearchAutocomplete = ({
         loading={!error && loading}
         filterOptions={(x) => x}
         disableClearable
+        noOptionsText={noOptionsText}
         onChange={(e, v) => onChange && onChange(v)}
         onInputChange={(e, v) => onInputChange && onInputChange(v)}
         options={options?.map(
