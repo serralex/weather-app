@@ -20,7 +20,9 @@ describe("MainWeather", () => {
   };
 
   test("renders WeatherCard when loading is false", () => {
-    render(<MainWeather data={weatherData} loading={false} />);
+    render(
+      <MainWeather data={weatherData} loading={false} title="Your city" />
+    );
     const weatherCardElement = screen.getByTestId("weather-card");
     expect(weatherCardElement).toBeInTheDocument();
   });

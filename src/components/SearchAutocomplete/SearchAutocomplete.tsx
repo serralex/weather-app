@@ -1,7 +1,6 @@
 import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Autocomplete from "@mui/material/Autocomplete";
-import SearchIcon from "@mui/icons-material/Search";
 
 interface Option {
   key: string;
@@ -36,9 +35,9 @@ const SearchAutocomplete = ({
         id="autocomplete"
         loading={!error && loading}
         filterOptions={(x) => x}
-        disableClearable
+        // disableClearable
         noOptionsText={noOptionsText}
-        onChange={(e, v) => onChange && onChange(v)}
+        onChange={(e, v) => onChange && v && onChange(v)}
         onInputChange={(e, v) => onInputChange && onInputChange(v)}
         options={options?.map(
           (option) => option[optionSelector as keyof Option]
@@ -58,8 +57,6 @@ const SearchAutocomplete = ({
               label={searchLabel}
               InputProps={{
                 ...params.InputProps,
-                type: "search",
-                endAdornment: <SearchIcon />,
               }}
             />
           )

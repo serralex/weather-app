@@ -1,5 +1,5 @@
 import { Skeleton } from "@mui/material";
-import PrimaryWeatherCard from "../../components/WeatherCard/WeatherCard";
+import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import { IWeatherData } from "../../interfaces/weather";
 
 interface IProps {
@@ -11,17 +11,16 @@ const RecentSearchedCities = ({ recentPlaces, loading }: IProps) => {
 
   return (
     <>
-      <h2 className="pb-8">Recently searched cities</h2>
+      <h2 className="pb-8 text-2xl md:text-3xl font-medium">
+        Recently searched cities
+      </h2>
       {loading ? (
         <Skeleton variant="rounded" width={"100%"} height={300} />
       ) : (
         <div className="grid md:grid-cols-3 gap-4 ">
-          {recentPlaces.map((data: IWeatherData) => (
-            <div
-              key={data.location.name + data.location.localtime_epoch}
-              className="flex-1"
-            >
-              <PrimaryWeatherCard
+          {recentPlaces.map((data: IWeatherData, index: number) => (
+            <div key={index} className="flex-1">
+              <WeatherCard
                 key={data.location.name}
                 icon={{
                   url: data.current.condition.icon,

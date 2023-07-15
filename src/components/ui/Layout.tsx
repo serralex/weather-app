@@ -6,7 +6,7 @@ interface IProps {
 }
 const Layout = ({ children }: IProps) => {
   return (
-    <div className="bg-gradient-to-t to-[#111] from-[#503a9a] text-white min-h-full">
+    <div className="bg-[#111111] text-white min-h-full font-primary">
       <Header />
       <div className="mx-auto max-w-7xl items-center justify-between p-6 lg:px-8">
         {children}

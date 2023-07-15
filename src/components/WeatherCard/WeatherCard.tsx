@@ -4,16 +4,26 @@ import { Divider } from "@mui/material";
 
 interface IProps {
   icon: { url: string; alt: string };
+  mode?: string;
   temperature: number;
   condition: string;
   place: string;
   date: string;
 }
 
-const WeatherCard = ({ icon, temperature, condition, place, date }: IProps) => {
+const WeatherCard = ({
+  icon,
+  temperature,
+  mode = "dark",
+  condition,
+  place,
+  date,
+}: IProps) => {
   return (
     <div
-      className="w-full bg-[#111] dark:bg-[#1a1a1a] p-8 rounded-lg h-full"
+      className={`${
+        mode === "dark" ? "bg-[#1a1a1a]" : "bg-[#fff6f5] text-black"
+      } w-full  p-8 rounded-lg h-full`}
       data-testid="weather-card"
     >
       <div>

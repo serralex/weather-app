@@ -1,46 +1,51 @@
-# Getting Started with Create React App
+# Your Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a weather app that displays the current weather information for the user's location. It also allows searching for custom cities, and it will show a list of your current searches. The app uses various APIs to provide accurate and up-to-date weather data.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- By default, the app will display the weather of the city you are located in. The user's location is retrieved from cookies. If the user's location is not found in the cookies, the app will retrieve the location from the browser and store it in the cookies for future use.
 
-### `npm start`
+- The app allows searching for custom cities.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- The app shows you a list of your recent searches.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
+The project uses the following technologies:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- ![React](https://reactjs.org/) React
+- ![Typescript](https://www.typescriptlang.org) Typescript
+- ![Tailwind CSS](https://tailwindcss.com) Tailwind CSS
+- ![Material UI](https://material-ui.com) Material UI
 
-### `npm run build`
+## API Libraries
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The project relies on the following API libraries:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Mapbox](https://www.mapbox.com/) - Used for retrieving cities.
+- [Weatherapi](https://www.weatherapi.com/) - Used for fetching weather data.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+To run the project locally, please follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Ensure that you have populated the necessary environment file fields. Create a `.env` file in the project root directory and provide the required values. Refer to the `.env.example` file for the required environment variables.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Install the project dependencies by running the following command:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+npm install
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+3. Start the development server by running the following command:
 
-## Learn More
+npm run start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This will launch the app and make it accessible at `http://localhost:3000` in your browser.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Running Tests
+
+To run tests for the project, use the following command:
+
+npm run test
+
+This will execute the test suite and display the test results.

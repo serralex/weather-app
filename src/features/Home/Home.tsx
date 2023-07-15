@@ -18,7 +18,7 @@ const Home = () => {
   const {
     location,
     loading: loadingLocation,
-    isActive: isLocationActive,
+    error: errorLocation,
   } = useLocation();
 
   const {
@@ -43,15 +43,19 @@ const Home = () => {
     if (dataWeather) setWeatherHistory((prev: any) => [dataWeather, ...prev]);
   }, [dataWeather, setWeatherHistory]);
 
-  if (errorWeather) return <Layout>{errorWeather.message}</Layout>;
+  const error = !dataWeather && (errorLocation || errorWeather);
+  if (error) return <Layout>{error.message}</Layout>;
   return (
     <Layout>
       <MainWeather
-        data={dataWeather}
-        loading={
-          loadingWeather ||
-          (!dataWeather && loadingLocation && isLocationActive)
+        title={location === selectedPlace ? "Your city" : "Searched city"}
+        subtitle={
+          location === selectedPlace
+            ? "We use your browser's geolocation to obtain your city."
+            : ""
         }
+        data={dataWeather}
+        loading={loadingWeather || (!dataWeather && loadingLocation)}
       />
       <RecentSearchedCities
         recentPlaces={weatherHistory.slice(1, 4)}
