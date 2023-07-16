@@ -1,8 +1,12 @@
+import { IWeatherData } from "./weather";
+
+type SetState<T> = (value: T | ((prevValue: T) => T)) => void;
+
 export interface IGlobal {
   selectedPlace: string;
-  setSelectedPlace: (selectedPlace: string) => void;
-  weatherHistory: any;
-  setWeatherHistory: (weatherHistory: any) => void;
+  setSelectedPlace: SetState<string>;
+  weatherHistory: IWeatherData[];
+  setWeatherHistory: SetState<IWeatherData[]>;
   loadingWeatherHistory: boolean;
-  setLoadingWeatherHistory: (loadingWeatherHistory: boolean) => void;
+  setLoadingWeatherHistory: SetState<boolean>;
 }

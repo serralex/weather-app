@@ -40,7 +40,12 @@ const Home = () => {
   }, [selectedPlace, fetchWeather]);
 
   useEffect(() => {
-    if (dataWeather) setWeatherHistory((prev: any) => [dataWeather, ...prev]);
+    if (dataWeather) {
+      setWeatherHistory((prevWeatherHistory) => [
+        dataWeather,
+        ...prevWeatherHistory,
+      ]);
+    }
   }, [dataWeather, setWeatherHistory]);
 
   const error = !dataWeather && (errorLocation || errorWeather);
@@ -57,10 +62,12 @@ const Home = () => {
         data={dataWeather}
         loading={loadingWeather || (!dataWeather && loadingLocation)}
       />
-      <RecentSearchedCities
-        recentPlaces={weatherHistory.slice(1, 4)}
-        loading={loadingWeatherHistory}
-      />
+      {weatherHistory?.length > 1 && (
+        <RecentSearchedCities
+          recentPlaces={weatherHistory.slice(1, 4)}
+          loading={loadingWeatherHistory}
+        />
+      )}
     </Layout>
   );
 };

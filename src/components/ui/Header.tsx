@@ -13,7 +13,7 @@ const Header = () => {
     error: errorPlaces,
   } = usePlaces();
   return (
-    <header className="bg-[#1a1a1a]">
+    <header>
       <nav
         className="flex-col md:flex-row mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"

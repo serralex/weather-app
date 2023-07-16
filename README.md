@@ -1,6 +1,6 @@
 # Your Weather App
 
-This is a weather app that displays the current weather information for the user's location. It also allows searching for custom cities, and it will show a list of your current searches. The app uses various APIs to provide accurate and up-to-date weather data.
+This is a weather app that displays the weather information for the user's location by default. It also allows users to search for cities and retrieve weather information. Additionally, the app provides a list of the user's current searches
 
 ## Features
 
@@ -14,10 +14,10 @@ This is a weather app that displays the current weather information for the user
 
 The project uses the following technologies:
 
-- ![React](https://reactjs.org/) React
-- ![Typescript](https://www.typescriptlang.org) Typescript
-- ![Tailwind CSS](https://tailwindcss.com) Tailwind CSS
-- ![Material UI](https://material-ui.com) Material UI
+- [React](https://reactjs.org/) React
+- [Typescript](https://www.typescriptlang.org) Typescript
+- [Tailwind CSS](https://tailwindcss.com) Tailwind CSS
+- [Material UI](https://material-ui.com) Material UI
 
 ## API Libraries
 
@@ -34,11 +34,11 @@ To run the project locally, please follow these steps:
 
 2. Install the project dependencies by running the following command:
 
-npm install
+### `npm install`
 
 3. Start the development server by running the following command:
 
-npm run start
+### `npm run start`
 
 This will launch the app and make it accessible at `http://localhost:3000` in your browser.
 
@@ -46,6 +46,4 @@ This will launch the app and make it accessible at `http://localhost:3000` in yo
 
 To run tests for the project, use the following command:
 
-npm run test
-
-This will execute the test suite and display the test results.
+### `npm run test`
