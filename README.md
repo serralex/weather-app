@@ -2,6 +2,10 @@
 
 This is a weather app that displays the weather information for the user's location by default. It also allows users to search for cities and retrieve weather information. Additionally, the app provides a list of the user's current searches
 
+![your-weather-app](https://github.com/serralex/weather-app/assets/19570597/c85ff822-5f4d-4d1d-8f91-a6978ddf7e06)
+
+
+
 ## Features
 
 - By default, the app will display the weather of the city you are located in. The user's location is retrieved from cookies. If the user's location is not found in the cookies, the app will retrieve the location from the browser and store it in the cookies for future use.
